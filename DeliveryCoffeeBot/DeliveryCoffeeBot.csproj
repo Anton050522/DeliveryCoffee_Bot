@@ -67,6 +67,10 @@
     <Compile Include="Coffee\ShowCoffeeResult.cs" />
     <Compile Include="Command.cs" />
     <Compile Include="Coffee\ChatCoffeeParticipants.cs" />
+    <Compile Include="Doner\ChatDonerParticipants.cs" />
+    <Compile Include="Doner\DonerTimeCommand.cs" />
+    <Compile Include="Doner\ShowDonerResult.cs" />
+    <Compile Include="Doner\WantDonerCommand.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Coffee\CoffeeTimeCommand.cs" />

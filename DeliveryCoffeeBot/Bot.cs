@@ -1,7 +1,10 @@
 ﻿using DeliveryCoffeeBot.Coffee;
+using DeliveryCoffeeBot.Doner;
+using System;
 using System.Collections.Generic;
 using Telegram.Bot;
 using Telegram.Bot.Args;
+using Telegram.Bot.Types.ReplyMarkups;
 
 namespace DeliveryCoffeeBot
 {
@@ -19,11 +22,14 @@ namespace DeliveryCoffeeBot
             {
                 return client;
             }
-            commandList = new List<Command>() 
-            { 
+            commandList = new List<Command>()
+            {
                 new CoffeeTimeCommand(),
                 new WantCoffeeCommand(),
-                new ShowCoffeeResultCommand()
+                new ShowCoffeeResultCommand(),
+                new DonerTimeCommand(),
+                new ShowDonerResult(),
+                new WantDonerCommand()
             };
             client = new TelegramBotClient(AppSettings.Key);
             client.OnMessage += BotOnMessageReceived;
@@ -34,7 +40,7 @@ namespace DeliveryCoffeeBot
         }
 
         [System.Obsolete]
-        private static void BotOnMessageReceived(object sender, MessageEventArgs messageEventArgs)
+        private static async void BotOnMessageReceived(object sender, MessageEventArgs messageEventArgs)
         {
             var message = messageEventArgs.Message;
 
